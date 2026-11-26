@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ShoppersStack Automation Suite" verbose="1">
+  <listeners>
+    <listener class-name="com.shoppersstack.listeners.ResultListener"/>
+  </listeners>
+
+  <!-- Full run on Chrome: smoke, functional, negative, integration, system, ui, performance, security, boundary -->
+  <test name="Chrome-Full">
+    <parameter name="browser" value="chrome"/>
+    <packages><package name="com.shoppersstack.tests"/></packages>
+  </test>
+
+  <!-- Cross-browser / compatibility: smoke group on Firefox -->
+  <test name="Firefox-Smoke">
+    <parameter name="browser" value="firefox"/>
+    <groups><run><include name="smoke"/></run></groups>
+    <packages><package name="com.shoppersstack.tests"/></packages>
+  </test>
+</suite>
